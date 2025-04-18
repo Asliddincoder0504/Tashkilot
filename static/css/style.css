@@ -1,0 +1,146 @@
+/* Umumiy stillar */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 1.8em;
+}
+
+h3 {
+    margin-top: 15px;
+    font-size: 1.4em;
+}
+
+/* Orqaga qaytish tugmasi */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #c0392b;
+}
+
+/* Tashkilotlar jadvali */
+.tashkilot-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 3px solid #2c3e50;
+}
+
+.tashkilot-table th,
+.tashkilot-table td {
+    padding: 12px;
+    text-align: left;
+    border: 2px solid #2c3e50;
+}
+
+.tashkilot-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tashkilot-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tashkilot-table tr:hover {
+    background-color: #e0f7fa;
+}
+
+/* Xodimlar jadvali */
+.xodim-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 2px solid #34495e;
+}
+
+.xodim-table th,
+.xodim-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #34495e;
+}
+
+.xodim-table th {
+    background-color: #2ecc71;
+    color: white;
+    font-weight: bold;
+}
+
+/* Lavozimga qarab farqlash */
+.xodim-table tr.director {
+    background-color: #ffeaa7; /* Direktor uchun sariq */
+}
+
+.xodim-table tr.manager {
+    background-color: #a29bfe; /* Manager uchun och binafsha */
+}
+
+.xodim-table tr.employee {
+    background-color: #dfe6e9; /* Oddiy xodim uchun kulrang */
+}
+
+.xodim-table tr:hover {
+    background-color: #b2bec3;
+    transition: background-color 0.3s ease;
+}
+
+/* Mobil qurilmalar uchun */
+@media (max-width: 768px) {
+    .tashkilot-table th,
+    .tashkilot-table td,
+    .xodim-table th,
+    .xodim-table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+    .back-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}

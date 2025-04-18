@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tashkilotlar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Barcha Tashkilotlar</h1>
+        <!-- Orqaga qaytish tugmasi -->
+
+        {% if tashkilotlar %}
+            {% for tashkilot in tashkilotlar %}
+                <h2>{{ tashkilot.nomi }}</h2>
+                <table class="tashkilot-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Nomi</th>
+                            <th>Manzil</th>
+                            <th>Telefon</th>
+                            <th>Email</th>
+                            <th>Rahbar</th>
+                            <th>Turi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ tashkilot.nomi }}</td>
+                            <td>{{ tashkilot.manzili }}</td>
+                            <td>{{ tashkilot.telefon }}</td>
+                            <td>{{ tashkilot.email }}</td>
+                            <td>{{ tashkilot.tashkilot_rahbari }}</td>
+                            <td>{{ tashkilot.tashkilot_turi }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <!-- Xodimlar jadvali -->
+                <h3>{{ tashkilot.nomi }} xodimlari</h3>
+                {% if tashkilot.xodimlar.all %}
+                    <table class="xodim-table">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Ismi</th>
+                                <th>Lavozimi</th>
+                                <th>Telefon</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for xodim in tashkilot.xodimlar.all %}
+                                <tr class="{% if xodim.lavozimi == 'Direktor' %}director{% elif xodim.lavozimi == 'Manager' %}manager{% else %}employee{% endif %}">
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ xodim.ismi }}</td>
+                                    <td>{{ xodim.lavozimi }}</td>
+                                    <td>{{ xodim.telefon }}</td>
+                                    <td>{{ xodim.email }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>Bu tashkilotda xodimlar mavjud emas.</p>
+                {% endif %}
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>Hozircha tashkilot mavjud emas.</p>
+        {% endif %}
+    </div>
+
+        <a href="javascript:history.back()" class="back-button">Orqaga qaytish</a>
+
+</body>
+</html>
